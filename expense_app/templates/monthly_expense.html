@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Expenses</title>
+    <!-- Include Bootstrap 5 CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnA-AD1a6BV6SOZ6JqKJ10JokU_3TciwbRZw&s');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .table-container {
+            background-color: rgba(248, 249, 250, 0.6); /* Beige with transparency */
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .table {
+            background-color: rgba(243, 247, 242, 0.6); 
+        }
+        .table thead {
+            background-color: rgba(138, 171, 130, 0.7); /* Darker beige for header */
+        }
+
+        .table-bordered {
+            border: 1px solid #f8f9fa; /* Light border for table */
+        }
+
+        .table-bordered td,
+        .table-bordered th {
+            border: 1px solid #f8f9fa; 
+        }
+
+        .form-select,
+        .btn-success {
+            margin-top: 20px;
+        }
+
+        .form-select {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container mt-4 table-container mb-5">
+        <h1 class="mb-4">Monthly Expenses</h1>
+
+        <!-- Table for Monthly Expenses -->
+        <table class="table table-hover table-bordered">
+            <thead class="table">
+                <tr>
+                    <th>Month</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for month in monthly_data %}
+                <tr>
+                    <td>{{ month.month|date:"F Y" }}</td>
+                    <td>Rs.{{ month.total_amount }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="2" class="text-center">No expenses recorded for this month.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Form to select month -->
+        <center>
+            <form method="get" class="mb-4">
+                <label for="month" class="form-label">Select Month:</label>
+                <select id="month" name="month" class="form-select px-2 py-1 mt-1">
+                    {% for month in monthly_data %}
+                    <option value="{{ month.month|date:'Y-m' }}" {% if month.month|date:'Y-m' == selected_month %}selected{% endif %}>
+                        {{ month.month|date:'F Y' }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <br>
+                <button type="submit" class="btn btn-success mt-4">View Expenses</button>
+            </form>
+        </center>
+
+        <!-- Pie Chart for Category-wise Expenses -->
+        <center>
+            {% if pie_chart %}
+            <div class="text-center mt-5 d-flex justify-content-center align-items-center pb-5">
+                <div class="w-100" style="max-width: 800px;">
+                    <h2>Expenses by Category for {{ selected_month|date:"F Y" }}</h2>
+                    <img src="data:image/png;base64,{{ pie_chart }}" alt="Expenses by Category Pie Chart" class="img-fluid">
+                </div>
+            </div>
+            {% else %}
+            <div class="text-center mt-5">
+                <p>No expense data available for category-wise analysis this month.</p>
+            </div>
+            {% endif %}
+        </center>
+    </div>
+
+    <!-- Include Bootstrap 5 JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+</body>
+</html>

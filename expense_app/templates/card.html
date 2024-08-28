@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facilities</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%; /* Ensure the card takes full height of its container */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-body {
+            flex: 1; /* Ensure the body takes up the remaining space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .card-container {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container card-container">
+        <div class="row">
+            <!-- Feature 1 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card text-center">
+                    <img src="https://img.freepik.com/free-vector/budget-management-financial_603843-370.jpg?t=st=1724777429~exp=1724781029~hmac=ef16ddf19ebcaf48ab02de209f983f18766f41041610a0ed882431d06327afea&w=1380" class="card-image" alt="Track Your Expenses">
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <h5 class="card-title">Track Your Expenses</h5>
+                        <p class="card-description">Visualize your spending with detailed graphs and charts to easily track and analyze your expenses.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card text-center">
+                    <img src="https://img.freepik.com/free-vector/business-growth-money-savings-statistics_24877-49802.jpg?t=st=1724776577~exp=1724780177~hmac=feeb688ff815a8e1eb5685b69b96a117e62c1d57fe4537054589c2f0d842be76&w=1380" class="card-image" alt="Monthly and Weekly Reports">
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <i class="bi bi-calendar"></i>
+                        </div>
+                        <h5 class="card-title">Monthly and Weekly Reports</h5>
+                        <p class="card-description">Get comprehensive reports on your expenses categorized by month or week for better financial planning.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card text-center">
+                    <img src="https://img.freepik.com/free-vector/flat-finance-concept-with-cute-style_23-2147677390.jpg?t=st=1724777282~exp=1724780882~hmac=85274ccf75e731d3ffe5535527d2643dcc989ba4370c5e99c39b7eee85bf4ea5&w=1380" class="card-image" alt="Analyze Trends">
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <i class="bi bi-bar-chart-line"></i>
+                        </div>
+                        <h5 class="card-title">Analyze Trends</h5>
+                        <p class="card-description">Analyze spending trends and gain insights into your financial habits with our trend analysis tools.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more features as needed -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Expenses</title>
+    <!-- Include Bootstrap 5 CSS -->
+    <style>
+        body {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnA-AD1a6BV6SOZ6JqKJ10JokU_3TciwbRZw&s');
+            background-size: cover;
+        }
+
+        .table-container {
+            background-color: rgba(243, 247, 242, 0.6); 
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .table {
+            background-color: rgba(243, 247, 242, 0.6); 
+        }
+
+        .table thead {
+            background-color: rgba(138, 171, 130, 0.7); /* Darker beige for header */
+        }
+    </style>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container mt-4 table-container">
+        <h1 class="mb-4">Weekly Expenses</h1>
+
+        <!-- Table for Weekly Expenses -->
+        <table class="table table-hover table-bordered">
+            <thead class="table">
+                <tr>
+                    <th>Week Starting</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for week in weekly_data %}
+                <tr>
+                    <td>{{ week.week|date:"Y-m-d" }}</td>
+                    <td>Rs.{{ week.total_amount }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="2" class="text-center">No expenses recorded for this week.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Include Bootstrap 5 JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+</body>
+</html>
